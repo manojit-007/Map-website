@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+    outline: 0;
+    list-style: none;
+    text-decoration: none;
+}
+   
+html, 
+body{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#map {
+    width: 100vw;
+    height: 100vh;
+}
+.custom-marker {
+    background-size: cover;
+    cursor: pointer;
+    background-image: url(./marker.png);
+}
+
+.mapboxgl-ctrl-geocoder--icon.mapboxgl-ctrl-geocoder--icon-search{
+    display: none;
+}
