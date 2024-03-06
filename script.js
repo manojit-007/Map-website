@@ -1,12 +1,6 @@
 mapboxgl.accessToken = `pk.eyJ1IjoiZGVsdGEtc3R1ZHVlbnQiLCJhIjoiY2xvMDk0MTVhMTJ3ZDJrcGR5ZDFkaHl4ciJ9.Gj2VU1wvxc7rFVt5E4KLOQ`;
 
-// const map = new mapboxgl.Map({
-//     container: 'map',
-//     style: 'mapbox://styles/mapbox/standard',
-//     center: [ 72.877426, 19.076090], // [lang, lat]
-//     zoom: 5,
-//     maxZoom: 9
-// });
+
 
 const defaultPosition = [72.877426, 19.076090]
 function ShowMap(position) {
@@ -44,7 +38,7 @@ function ShowMap(position) {
         new MapboxDirections({
             accessToken: mapboxgl.accessToken
         }),
-        'top-left'
+        'bottom-left'
     );
 
 }
@@ -62,3 +56,27 @@ function errorLocation(error) {
     console.log("Error getting geolocation:", error.message);
     ShowMap(defaultPosition);
 }
+
+
+
+function update() {
+    let trafficLabel = document.querySelector('label[for="mapbox-directions-profile-driving-traffic"]');
+    if (trafficLabel) {
+        trafficLabel.innerHTML = '🚥';
+    }
+    let drivingLabel = document.querySelector('label[for="mapbox-directions-profile-driving"]');
+    if (trafficLabel) {
+        drivingLabel.innerHTML = '🚗';
+    }
+    let walkingLabel = document.querySelector('label[for="mapbox-directions-profile-walking"]');
+    if (trafficLabel) {
+        walkingLabel.innerHTML = '🚶🏻';
+    }
+    let cyclingLabel = document.querySelector('label[for="mapbox-directions-profile-cycling"]');
+    if (trafficLabel) {
+        cyclingLabel.innerHTML = '🚴';
+    }
+}
+
+setTimeout(update, 1000)
+
